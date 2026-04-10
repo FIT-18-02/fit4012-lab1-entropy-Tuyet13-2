@@ -1,16 +1,5 @@
 #include <iostream>
-
 using namespace std;
-
-// gcd
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
 
 // extended euclid
 int extended_euclid(int a, int b, int &x, int &y) {
@@ -20,7 +9,7 @@ int extended_euclid(int a, int b, int &x, int &y) {
         return a;
     }
 
-    int x1 = 0, y1 = 0;
+    int x1, y1;
     int g = extended_euclid(b, a % b, x1, y1);
 
     x = y1;
@@ -31,37 +20,18 @@ int extended_euclid(int a, int b, int &x, int &y) {
 
 // modulo inverse
 int mod_inverse(int a, int m) {
-    int x = 0, y = 0;
+    int x, y;
     int g = extended_euclid(a, m, x, y);
 
-    // Không tồn tại nghịch đảo
-    if (g != 1) {
-        return -1;
-    }
+    if (g != 1) return -1;
 
-    // Đảm bảo kết quả dương
     return (x % m + m) % m;
 }
 
 int main() {
-    int a = 0, m = 0;
-    cout << "Nhap a, m: ";
-    cin >> a >> m;
-
-    if (gcd(a, m) != 1) {
-        cout << "Khong ton tai nghich dao modulo vi gcd(a, m) != 1.\n";
-        return 0;
-    }
-
-    int inv = mod_inverse(a, m);
-
-    if (inv == -1) {
-        cout << "Khong ton tai nghich dao modulo.\n";
-    } else {
-        cout << "Nghich dao cua " << a << " mod " << m << " la: " << inv << '\n';
-        cout << "Kiem tra: " << a << " * " << inv << " % " << m
-             << " = " << (1LL * a * inv % m) << '\n';
-    }
+    cout << mod_inverse(3, 7) << endl;    // 5
+    cout << mod_inverse(10, 17) << endl;  // 12
+    cout << mod_inverse(6, 9) << endl;    // -1
 
     return 0;
 }
