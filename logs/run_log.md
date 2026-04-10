@@ -1,14 +1,26 @@
 # Run Log – FIT4012 Lab 1
 
 ## Entropy / Redundancy
-- [ ] Đã chạy với input `aaaa`
-- [ ] Đã chạy với input `abcd`
-- [ ] Đã chạy với input `hello world`
+- [x] Đã chạy với input `aaaa`  
+  → Entropy ≈ 0  
+  → Redundancy ≈ 8  
+
+- [x] Đã chạy với input `abcd`  
+  → Entropy ≈ 2  
+  → Redundancy ≈ 6  
+
+- [x] Đã chạy với input `hello world`  
+  → Entropy ≈ 2.85  
+  → Redundancy ≈ 5.15  
+
+---
 
 ## Modulo inverse
-- [ ] Đã chạy với `3 7`
-- [ ] Đã chạy với `10 17`
-- [ ] Đã chạy với `6 9`
+- [x] Đã chạy với `3 7`  
+  → Kết quả: 5  
 
-## Điều em học được từ bài lab
-Viết 3-5 dòng ngắn gọn ở đây.
+- [x] Đã chạy với `10 17`  
+  → Kết quả: 12  
+
+- [x] Đã chạy với `6 9`  
+  → Không tồn tại nghịch đảo modulo (gcd ≠ 1)  
