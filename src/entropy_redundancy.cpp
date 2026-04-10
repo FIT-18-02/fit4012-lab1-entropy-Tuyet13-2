@@ -2,50 +2,37 @@
 #include <iostream>
 #include <map>
 #include <string>
-
 using namespace std;
 
-// Tính entropy
+// entropy
 double calculate_entropy(const string &text) {
-    if (text.empty()) {
-        return 0.0;
-    }
+    if (text.empty()) return 0.0;
 
     map<char, int> freq;
-    for (char c : text) {
-        freq[c]++;
-    }
+    for (char c : text) freq[c]++;
 
     double entropy = 0.0;
-    for (const auto &pair : freq) {
-        double p = static_cast<double>(pair.second) / text.size();
-        entropy -= p * log2(p);
+    for (auto &p : freq) {
+        double prob = (double)p.second / text.size();
+        entropy -= prob * log2(prob);
     }
     return entropy;
 }
 
-// Tính redundancy
-double calculate_redundancy(const string &text, int alphabet_size = 256) {
-    if (text.empty()) {
-        return 0.0;
-    }
+// redundancy
+double calculate_redundancy(const string &text) {
+    if (text.empty()) return 0.0;
 
     double entropy = calculate_entropy(text);
-    double max_entropy = log2(alphabet_size);
+    double max_entropy = log2(256);
 
     return max_entropy - entropy;
 }
 
 int main() {
-    string input;
-    cout << "Enter a string of characters: ";
-    getline(cin, input);
-
-    double entropy = calculate_entropy(input);
-    double redundancy = calculate_redundancy(input);
-
-    cout << "Entropy: " << entropy << '\n';
-    cout << "Redundancy: " << redundancy << '\n';
+    cout << calculate_entropy("aaaa") << endl;
+    cout << calculate_entropy("abcd") << endl;
+    cout << calculate_entropy("hello world") << endl;
 
     return 0;
 }
