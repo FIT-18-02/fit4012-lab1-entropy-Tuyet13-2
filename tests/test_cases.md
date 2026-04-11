@@ -13,3 +13,4 @@
 ## 3. Ghi chú
 - [x] Kiểm tra điều kiện gcd(a, m) = 1 trước khi tính.
 - [x] Kiểm tra trường hợp kết quả nghịch đảo âm (cần chuyển về dương).
+##
