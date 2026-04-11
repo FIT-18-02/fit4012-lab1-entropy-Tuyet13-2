@@ -9,3 +9,4 @@
 Em đã hiểu cách tính entropy và độ dư thừa.
 Em nắm vững thuật toán Euclid mở rộng.
 Các kiến thức này rất quan trọng trong bảo mật.
+//
