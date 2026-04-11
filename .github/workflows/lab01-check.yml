@@ -29,3 +29,4 @@ jobs:
 
       - name: Run Lab 01 checker
         run: python3 .github/scripts/check_lab01.py
+      
