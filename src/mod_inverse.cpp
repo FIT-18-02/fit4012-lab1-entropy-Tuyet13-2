@@ -1,36 +1,24 @@
 #include <iostream>
 
-// Hàm GCD chuẩn
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    return (b == 0) ? a : gcd(b, a % b);
 }
 
-// Thuật toán Euclid mở rộng
 int extended_euclid(int a, int m, int &x, int &y) {
     if (a == 0) {
         x = 0; y = 1;
         return m;
     }
     int x1, y1;
-    int gcd_val = extended_euclid(m % a, a, x1, y1);
+    int d = extended_euclid(m % a, a, x1, y1);
     x = y1 - (m / a) * x1;
     y = x1;
-    return gcd_val;
+    return d;
 }
 
-// Hàm này phải trả về kết quả cụ thể
 int mod_inverse(int a, int m) {
     int x, y;
     int g = extended_euclid(a, m, x, y);
-    if (g != 1) return -1; // Chỉ trả về -1 khi không tồn tại
-    return (x % m + m) % m; // Đảm bảo kết quả dương
-}
-
-int main() {
-    return 0; // Để trống main là an toàn nhất
+    if (g != 1) return -1;
+    return (x % m + m) % m;
 }
