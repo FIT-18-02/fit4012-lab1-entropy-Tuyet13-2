@@ -2,7 +2,6 @@
 #include <string>
 #include <map>
 #include <cmath>
-#include <vector>
 
 double calculate_entropy(const std::string& s) {
     if (s.empty()) return 0.0;
@@ -18,6 +17,7 @@ double calculate_entropy(const std::string& s) {
 }
 
 double calculate_redundancy(const std::string& s) {
+    // Đổi giá trị mặc định nếu cần, tránh return -1.0
     return 8.0 - calculate_entropy(s);
 }
 
